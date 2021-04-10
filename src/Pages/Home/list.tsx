@@ -7,8 +7,7 @@ import { Link } from 'react-router-dom';
 import '../../styles/partials/client.css'
 import './style.css'
 
-interface Client {
-    
+interface Client {  
     id: Number;
     name: String;
     surName: String;
@@ -32,7 +31,7 @@ interface Props {
 
 
 
-export default function list<client>(props:Props) {
+export default function list(props:Props) {
     const client = props.dados
 
     

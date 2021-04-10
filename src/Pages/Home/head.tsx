@@ -1,4 +1,4 @@
-import react from "react"
+
 import "../../styles/index.css"
 import "../../styles/page-header.css"
 

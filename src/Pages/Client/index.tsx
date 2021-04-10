@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import { useParams } from 'react-router-dom';
 import api from '../../service/api'
 
@@ -26,15 +26,14 @@ export default function Home() {
 
     const params = useParams<param>()
     const [client, setClient] = useState<Client>()
-    useEffect(() => {
 
+    
         api.get(`clients/${params.id}`)
-        .then(response => {
-            
+        .then(response => {        
             return setClient(response.data);
         } )
-      },
-      []);
+    
+    
 
     if(!client) {
         return (<p>Carregando </p>)

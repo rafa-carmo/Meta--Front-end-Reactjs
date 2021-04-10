@@ -1,23 +1,8 @@
-import React, { useState, useEffect }from 'react'
+import React, { useState }from 'react'
 import { useParams } from 'react-router-dom';
 import api from '../../service/api'
 import Address from './address'
 
-interface Data {
-    id: Number;
-    name: string;
-    surName: string;
-    birth: string;
-    cpf: string;
-    addresses: Array<{
-        type: string
-        street: string
-        number: string
-        state: string
-        city: string
-        zip: string
-    }>
-}
 
 interface param {
     id: string
@@ -29,21 +14,7 @@ export default function Home() {
 
 
         const [quantityAdress, setQuantity] = useState(0)
-    const [data, setData] = useState<Data>({
-        id: 0,
-        name: "",
-        surName: "",
-        birth: "",
-        cpf: "",
-        addresses: [{
-                    type: "",
-                    street: "",
-                    number: "",
-                    city: "",
-                    state: "",
-                    zip: ""
-        } ]
-    })
+
     
     const addressModel = {
                     id: quantityAdress,
@@ -73,7 +44,7 @@ export default function Home() {
 
     const params = useParams<param>()
 
-    useEffect(() => {
+    
 
         api.get(`clients/${params.id}`)
         .then(response => {
@@ -85,8 +56,7 @@ export default function Home() {
             setAddresses(response.data.addresses)
             ;
         } )
-      },
-      []);
+    
 
 
 
@@ -165,7 +135,7 @@ export default function Home() {
 
 
 
-if (!data) {
+if (!name) {
     return <p> Carregando</p>
 }
 
