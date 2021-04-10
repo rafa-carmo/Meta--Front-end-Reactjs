@@ -1,0 +1,40 @@
+#top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#summary {
+  margin-top: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 
+ * summary info
+/* -------------------------------------------------- */
+#summary .info {
+  display:flex;
+  font-family: Inter;
+
+  margin-bottom: 2rem;
+}
+
+.info > div {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.625rem;
+  
+  margin-right: 2.5rem; /* 40px of 16px root*/
+}
+
+.info > div > strong {
+  display: block;
+  
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.625rem; /* 26px of 16px root*/
+  
+}

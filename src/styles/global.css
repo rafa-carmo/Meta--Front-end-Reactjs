@@ -1,0 +1,79 @@
+
+
+*{
+    margin:0;
+    padding: 0;
+    color: black
+}
+
+body {
+    background-color: "#f8f8f8"
+}
+
+
+body,
+input,
+button,
+textarea {
+  font: 500 1rem Inter;
+  color: var(--color-text);
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* basic classes */
+.container {
+  width: min(1440px, 90vw);
+  margin: 0 auto;
+}
+
+flex {
+    display: flex;
+    
+}
+
+
+.form-container {
+  display: flex;
+  flex-direction: column
+}
+
+.form-container form{ 
+  display: flex;
+  flex-direction: column;
+  max-width: 80vw;
+}
+.form-container form input {
+  border: 1px solid black;
+  padding: 20px
+}
+.street {
+    width: 70%;
+    margin: 20px;
+}
+.number{
+  width: 5%;
+  margin: 15px;
+}
+.city {
+  width: 20%;
+  margin: 20px;
+}
+.state{
+  margin: 20px;
+}
+.zip {
+  margin: 20px
+}
+
+.save-button {
+  
+  background: "#FFEBCD";
+  margin: 1px solid black;
+  width: 50%;
+  height: 50px;
+  point: hand
+}

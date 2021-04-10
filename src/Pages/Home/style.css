@@ -1,0 +1,43 @@
+
+.client {
+
+margin-top: 50px;
+
+
+  display: grid;
+  grid-template-columns: 5% 35% 20% 15% 15% 10%;
+  align-items: center;
+
+  margin-bottom:  0.5rem;
+
+  position: relative;
+
+  transition: all 0.2s;
+}
+
+.client:hover {
+  background:  linear-gradient(90deg, rgba(250, 156, 45, 0.1) 0.45%, rgba(252, 253, 255, 0.1) 31.4%),
+}
+
+.client .column:last-child {
+  justify-self: flex-end;
+}
+
+
+.column.id {
+
+  font-weight: 600;
+
+}
+
+.column.name {
+
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 2.125rem;
+}
+
+.column.actions button img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
