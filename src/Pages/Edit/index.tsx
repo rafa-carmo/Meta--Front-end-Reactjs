@@ -1,7 +1,7 @@
-import React, { useState, useEffect }from 'react'
+import React, { useState }from 'react'
 import { useParams } from 'react-router-dom';
 import api from '../../service/api'
-import Address from './address'
+import Address from '../Register/address'
 
 
 interface param {
@@ -44,9 +44,9 @@ export default function Home() {
 
     const params = useParams<param>()
 
-    useEffect(() => {
 
-        api.get(`clients/${params.id}`)
+
+        const data = () => api.get(`clients/${params.id}`)
         .then(response => {
 
             setName(response.data.name)
@@ -56,22 +56,22 @@ export default function Home() {
             setAddresses(response.data.addresses)
             ;
         } )
-      },
-      []);
+    
 
 
 
     async function handleClick() {
 
-        if(!name.trim()) return alert("preencha todos os campos")
-        if(!surName.trim()) return alert("preencha todos os campos")
-        if(!birth.trim()) return alert("preencha todos os campos")
-        if(!cpf.trim()) return alert("preencha todos os campos")
-        if(!addresses[0].street.trim()) return alert("preencha todos os campos")
-        if(!addresses[0].number.trim()) return alert("preencha todos os campos")
-        if(!addresses[0].city.trim()) return alert("preencha todos os campos")
-        if(!addresses[0].state.trim()) return alert("preencha todos os campos")
-        if(!addresses[0].zip.trim()) return alert("preencha todos os campos")
+        const msgError =() => alert("Preencha todos os campos")
+        if(!name.trim()) return msgError()
+        if(!surName.trim()) return msgError()
+        if(!birth.trim()) return msgError()
+        if(!cpf.trim()) return msgError()
+        if(!addresses[0].street.trim()) msgError()
+        if(!addresses[0].number.trim()) msgError()
+        if(!addresses[0].city.trim()) return msgError()
+        if(!addresses[0].state.trim()) return msgError()
+        if(!addresses[0].zip.trim()) return msgError()
 
 
 
@@ -133,6 +133,7 @@ export default function Home() {
 
 
 if (!name) {
+    data()
     return <p> Carregando</p>
 }
 

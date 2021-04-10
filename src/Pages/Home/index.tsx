@@ -1,4 +1,4 @@
-import React, { useState, useEffect }from 'react'
+import React, { useState }from 'react'
 import api from '../../service/api'
 import { Link } from 'react-router-dom';
 import List from './list'
@@ -29,6 +29,11 @@ const [control, setControl] = useState(0)
 
 
 
+    api.get("clients")
+    .then(response => {
+        
+        return setClients(response.data);
+    } )
 
 
       async function handleRemove(id:Number){
@@ -40,11 +45,6 @@ const [control, setControl] = useState(0)
     if (!clients) {
 
 
-            api.get("clients")
-            .then(response => {
-                
-                return setClients(response.data);
-            } )
 
 
         return <p>"Carregando"</p>
