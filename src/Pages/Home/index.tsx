@@ -28,15 +28,7 @@ const [clients, setClients] = useState([])
 const [control, setControl] = useState(0)
 
 
-    useEffect(() => {
 
-        api.get("clients")
-        .then(response => {
-            
-            return setClients(response.data);
-        } )
-      },
-      [control]);
 
 
       async function handleRemove(id:Number){
@@ -46,6 +38,15 @@ const [control, setControl] = useState(0)
     }
 
     if (!clients) {
+
+
+            api.get("clients")
+            .then(response => {
+                
+                return setClients(response.data);
+            } )
+
+
         return <p>"Carregando"</p>
     }
     

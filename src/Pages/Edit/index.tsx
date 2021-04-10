@@ -1,4 +1,4 @@
-import React, { useState }from 'react'
+import React, { useState, useEffect }from 'react'
 import { useParams } from 'react-router-dom';
 import api from '../../service/api'
 import Address from './address'
@@ -44,7 +44,7 @@ export default function Home() {
 
     const params = useParams<param>()
 
-    
+    useEffect(() => {
 
         api.get(`clients/${params.id}`)
         .then(response => {
@@ -56,7 +56,8 @@ export default function Home() {
             setAddresses(response.data.addresses)
             ;
         } )
-    
+      },
+      []);
 
 
 
@@ -92,11 +93,7 @@ export default function Home() {
 
     function addAdress(){
         let tempAddress = addresses
-        let tempAdd = {...addressModel, id: quantityAdress +1}
-
-        
-        
-        
+        let tempAdd = {...addressModel, id: quantityAdress +1}      
         tempAddress.push(tempAdd)
 
 
